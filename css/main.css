@@ -1,0 +1,984 @@
+@charset "utf-8";
+@import url('common.css');
+
+/*💍💍💍💍💍.header  */
+header {
+    height: 100px;
+}
+header .inner {
+    margin: 0 auto; /* common 에서 180 auto로 되어있음 */
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* height 없으면 적용 안 됨 */
+}
+
+header .inner h1 a img {
+    width: 238px;
+}
+header .inner .pc ul {
+    display: inline-block;
+}
+header .inner .pc ul li {
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Nanum Myeongjo', serif;
+}
+header .inner .pc ul.user {
+    margin-left: 50px;
+}
+header .inner .pc ul.user li a img {
+    width: 16px;
+}
+header .inner .pc ul.user li:first-child {
+    margin-right: 20px;
+}
+header .inner .pc ul.gnb li {
+    margin-left: 40px;
+}
+
+/*💍💍💍💍💍.main_visual  */
+.main_visual {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.main_visual figure:first-child {
+    width: 55.88%;
+    /* (1023px / 1920px) * 100 = 55.88 */
+    /* height 잡으면 화면 크기 줄였을 때 여백이 계속 생김 */
+}
+.main_visual figure:first-child p {
+    text-align: right;
+    margin-right: 35.41%; /* (380 / 1073) *100 */
+}
+.main_visual figure:first-child img {
+    width: 100%;
+}
+
+.main_visual figure:last-child {
+   /* 1. width: 32.03%;  (615px / 1920px) * 100  또는 calc*/
+    width: calc(100% - 55.88% - 232px);
+}
+.main_visual figure:last-child img {
+    width: 100%;
+}
+
+/*💍💍💍💍💍.vie  */
+.vie .inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.vie .inner >div {
+    width: calc(100% / 3 - 12.5px);
+    position: relative;
+    margin-bottom: 25px;
+}
+.vie .inner >div.title {
+    background: url('../img/vie_text_img.jpg') center no-repeat;
+    display: flex;
+/*     flex-wrap: wrap; */ 
+    flex-direction: column;  /* ⭐⭐자식들이 공간이 남아도 세로로 나열시켜주는 역할 !!!!! 부모가 가지는 가로 영역을 그대로 가져서 그럼 */
+    justify-content: center; /* 수직 (원래는 수평) */
+     /*align-items: center; 수평 (원래는 수직) */
+    text-align: center; /* 이걸로 수평 가운데 맞춰주기 */
+}
+.vie .inner >div.title p { 
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0;
+}
+.vie .inner >div a figure img{
+ width: 100%;
+}
+.vie .inner >div:nth-child(2) {
+    order: -1;
+}
+.vie .inner >div.item a {
+    position: relative; 
+    /* 링크 걸려면 a태그에 적용해야함 */
+}
+.vie .inner >div.item a::before {
+    content: '';
+    background-color: #ffffff7c;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.vie .inner >div div {
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    /* transform: translateX(-50%); */
+    text-align: center;
+    font-size: 16px;
+    display: none;
+}
+
+.vie .inner >div div h4 {
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.vie .inner >div:hover a::before, .vie .inner >div:hover div{
+    display: block;
+}
+
+
+/*💍💍💍💍💍.editor  */
+.editor .inner .list {
+    display: flex;
+    justify-content: space-between;
+}
+.editor .inner .list figure,
+ .editor .inner .list_text {
+    width: calc(100% / 2 - 12.5px);
+    max-height: 670px; /* max로 하면 height 같이 줄어듦 */
+}
+.editor .inner .list figure img {
+    width: 100%;
+}
+.editor .inner .list .list_text > div {
+    height: 33.33%;
+    border-bottom: 1px solid #333 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+.editor .inner .list .list_text > div:first-child {
+    border-top: 1px solid #333;
+}
+
+.editor .inner .list .list_text > div div {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Nanum Myeongjo', serif;
+    align-items: center;
+
+}
+.editor .inner .list .list_text > div div h4 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+.editor .inner .list .list_text > div div a {
+    font-size: 14px;
+    position: relative;
+    padding-right: 10px;
+    display: none;
+}
+.editor .inner .list .list_text > div div a::before {
+    /* 전체보기 아이콘 */
+    content: '';
+    width: 6px;
+    height: 10px; 
+    background-image: url('../img/next_icon.png');
+    background-size: 100%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+.editor .inner .list .list_text > div p {
+    line-height: 1.5;
+    font-size: 16px;
+    margin-top: 2rem;
+    word-break: keep-all;
+}
+
+
+/*💍💍💍💍💍.best  */
+.best {
+    background-color: #eeede9;
+    padding: 18rem 0;
+}
+.best .inner {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.best .inner .left {
+    width: 32.13%;
+    position: relative;
+    margin-top: 5rem;
+}
+.best .inner .left h3 {
+    font-size: 2.8rem;
+    
+}
+
+.best .inner .left .best_menu li {
+    display: inline-block;
+    padding: 0 5px;
+    margin-right: 20px;
+    margin-bottom: 3rem;
+    font-size: 14px;
+    color: #888;
+}
+.best .inner .left .best_menu li.on {
+    color: #333;
+    border-bottom: 1px solid #333;
+}
+
+.best .inner .best_slide_cont {
+    width: 66.10%;
+}
+.best .inner .best_slide_cont .mySwiper {
+    display: none;
+}
+.best .inner .best_slide_cont .mySwiper.on {
+    display: block;
+}
+.best .inner .best_slide_cont figure {
+    max-height: 442px;
+    height: 32.5vw; /* (442 / 1360) * 100 */
+    border: 1px solid #333;
+}
+.best .inner .best_slide_cont figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    
+}
+
+.best .inner .best_slide_cont .info >p {
+    font-size: 14px;
+    color: #555555;
+    margin: 25px 0 7px;
+}
+.best .inner .best_slide_cont .info h4 {
+    font-size: 16px;
+    word-break: keep-all;
+    line-height: 1.5;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 25px;
+    height: 75px;
+}
+
+.best .inner .best_slide_cont .info div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    
+}
+.best .inner .best_slide_cont .info div p {
+    color: #555;
+    text-decoration: line-through;
+}
+.best .inner .best_slide_cont .info div span {
+    color: #995727;
+    margin-left: 25px;
+}
+
+.best .swiper-button-next {
+    background-image: url('../img/arrow-right.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 30px;
+    height: 30px;
+    left: 40px;
+    top: 250px;
+    margin-top: 0;
+}
+
+.best .swiper-button-prev {
+    background-image: url('../img/arrow-left.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 30px;
+    height: 30px;
+    left: 0;
+    top: 250px;
+    margin-top: 0;
+}
+.best .swiper-button-next::after,.best .swiper-button-prev::after {
+    display: none;
+}
+
+
+/*💍💍💍💍💍.brand  */
+.brand .inner .list {
+    display: flex;
+    justify-content: space-between;
+}
+.brand .inner .list > div {
+    width: calc(100% /2 - 12.5px);
+    max-height: 877px;
+}
+.brand .inner .list > div.list_item {
+    position: relative;
+}
+.brand .inner .list > div.list_item figure{
+    height: 100%;
+}
+.brand .inner .list > div.list_item figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.brand .inner .list > div.list_item div {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+.brand .inner .list > div.list_item div h4 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 2rem;
+}
+.brand .inner .list > div.list_item div p {
+    font-size: 16px;
+    margin: 10px 0 40px;
+    line-height: 1.5;
+}
+.brand .inner .list > div.list_item div a {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 14px;
+    position: relative;
+}
+.brand .inner .list > div.list_item div a::before {
+    content: '';
+    background-image: url('../img/next_icon.png');
+    width: 6px;
+    height: 10px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+}
+
+
+.brand .inner .list >div.right_list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: space-between; /* 2줄이니까 */
+}
+.brand .inner .list >div.right_list .item {
+    width: calc(100% / 2 - 12.5px);
+}
+.brand .inner .list >div.right_list .item figure {
+    width: 100%;
+}
+.brand .inner .list >div.right_list .item figure img {
+    width: 100%;
+}
+.brand .inner .list >div.right_list div h4 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 20px;
+    margin: 25px 0 10px;
+}
+.brand .inner .list >div.right_list div p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/*💍💍💍💍💍.archive  */
+.archive {
+    height: 580px;
+    position: relative;
+}
+.archive img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.archive .inner {
+    /* background-color: rgb(128, 152, 173); */
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+}
+.archive .inner div {
+    width: 552px;
+    height: 100%;
+    padding: 50px;
+    background-color: rgb(0, 0,0,0.6);
+    color: #fff;
+}
+.archive .inner div h3 {
+    font-size: 28px;
+    font-family: 'Nanum Myeongjo', serif;
+    margin-bottom: 30px;
+}
+.archive .inner div h4 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+.archive .inner div p {
+    font-size: 16px;
+    margin: 10px 0 50px;
+    line-height: 1.5;
+}
+.archive .inner div a {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 14px;
+    position: relative;
+}
+.archive .inner div a::before {
+    content: '';
+    width: 6px;
+    height: 10px;
+    background-image: url('../img/next_icon_w.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+}
+
+/*💍💍💍💍💍.insta  */
+.insta {
+    display: flex;
+    justify-content: flex-end;
+}
+.insta .inner {
+    max-width: 1655px;
+    width: calc(100% - 20px);
+    /* background-color: aqua; */
+    margin: 18rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.insta .inner .left {
+    width: 26.4%; /* (437 / 1655) *100 */
+    position: relative;
+}
+.insta .inner .left h3 {
+    font-size: 28px;
+    margin-bottom: 2rem;
+}
+.insta .inner .left p {
+    font-size: 16px;
+}
+
+
+.insta .inner .insta_slide_list {
+    width: calc(100% - 26.4% - 12.5px);
+}
+.insta .inner .insta_slide_list figure {
+    width: 100%;
+}   
+.insta .inner .insta_slide_list figure img {
+    width: 100%;
+}
+.swiper-insta-next {
+    width: 30px;
+    height: 30px;
+    background-image: url('../img/arrow-right.png');
+    background-size: 100%;
+    position: absolute;
+    top: 130px;
+    left: 40px;
+}
+.swiper-insta-prev {
+    width: 30px;
+    height: 30px;
+    background-image: url('../img/arrow-left.png');
+    background-size: 100%;
+    position: absolute;
+    top: 130px;
+    left: 0;
+}
+
+.insta .inner .insta_slide_list .swiper-slide div h4 {
+    margin-top: 20px;
+    font-size: 16px;
+}
+.insta .inner .insta_slide_list .swiper-slide div p {
+    font-size: 16px;
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #555;
+}
+.insta .inner .insta_slide_list .swiper-slide div ul {
+    display: flex;
+    align-items: center;
+}
+.insta .inner .insta_slide_list .swiper-slide div ul li img {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+}
+.insta .inner .insta_slide_list .swiper-slide div ul li {
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1024px){
+    html, body {
+        font-size: 50%; /* 8px */
+    }
+    header {
+        height: 70px;
+    }
+    header .m_nav {
+        display: none;
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        font-size: 25px;
+        text-align: center;
+        padding: 10rem;
+    }
+
+    header .close img {
+        width: 30px;
+    }
+
+    header .m_nav .gnb li {
+        padding: 15px 0;
+    }
+    header .open img{
+        width: 25px;
+    }
+    header .m_nav .user {
+        border-top: 1px solid #888;
+        margin-top: 50px;
+        padding-top: 50px;
+    }
+    header .m_nav .user li {
+        display: inline-block;
+    }
+    header .m_nav .user li img {
+        width: 20px;
+    }
+
+
+    .main_visual figure:first-child {
+        width: 61.23%;
+        /* (627px / 1024px) * 100 = 61.23 */
+        /* height 잡으면 화면 크기 줄였을 때 여백이 계속 생김 */
+    }
+    .main_visual figure:last-child {
+        width: calc(100% - 61.23% - 20px);
+    }
+
+    .main_visual figure:first-child p {
+        margin-right: 0;
+    }
+    .vie .inner >div div {
+        position:static; /* absolute 해제 */
+        display: block;
+        margin-top: 15px;
+    }
+    .vie .inner >div div h4 {
+        margin-bottom: 7px;
+    }
+
+    .editor .inner .list figure, .editor .inner .list_text {
+        height: 530px; /* 텍스트가 들어갈 공간 확보하기 */
+    }
+    .editor .inner .list figure img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    .brand .inner .list {
+        display: block;
+    }
+    .brand .inner .list > div {
+        width: 100%;
+    }
+    .brand .inner .list > div.list_item {
+        height: 438px;
+        margin-bottom: 25px;
+    }
+    .brand .inner .list >div.right_list {
+        max-height: none; /* .list>div 에 max-height가 잡혀있어서 밑 부분이 잘림  */
+    }
+    .brand .inner .list >div.right_list .item {
+        width: calc(100% / 2 - 10px);
+        margin-bottom: 40px;
+    }
+    .brand .inner .list >div.right_list .item figure {
+        max-height: 280px;
+        height: 29.16vw; /* 화면 width줄어들 때 같이 줄어들도록 (280 / 960) * 100 */
+    }
+    .brand .inner .list >div.right_list .item figure img {
+        height: 100%;
+        object-fit: cover;
+    }
+    .brand .inner .list >div.right_list div p br {
+        display: none;
+    }
+
+    .insta .inner{
+        display: block;
+    }
+    .insta .inner .left {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+    .insta .inner .left h3 {
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+
+    .insta .inner .insta_slide_list {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .swiper-insta-next {
+        left: auto; /* left값 없애주기 */
+        top: 0;
+        right: 0;
+        
+    }
+    .swiper-insta-prev {
+        left: auto;
+        top: 0;
+        right: 40px;
+    }
+}/* 1024 */
+
+@media screen and (max-width: 800px) {
+    .editor .inner .list {
+        display: block;
+    }
+    .editor .inner .list figure, .editor .inner .list .list_text  {
+        width: 100%;
+    }
+    .editor .inner .list figure {
+        height: 334px;
+    }
+    .editor .inner .list .list_text {
+        height: auto;
+    }
+    .editor .inner .list .list_text > div {
+        height: auto;
+        padding: 25px 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    html, body {
+        font-size: 37.5%; /* 6px */
+    }
+    .main_visual {
+        font-size: 16px;
+    }
+    .main_visual figure:first-child {
+        width: 100%;
+        height: 500px;
+    }
+    .main_visual figure:first-child img {
+        height: 100%;
+        object-fit: cover;
+    }
+    .main_visual figure:first-child p {
+        text-align: center;
+        margin-top: 15px;
+    }
+    .main_visual figure:last-child {
+        display: none;
+    }
+
+    .vie .inner >div.title {
+        width: 100%;
+        height: 180px;
+        padding: 47px 0;
+    }
+    .vie .inner >div:nth-child(2) {
+        order: 0;
+    }
+    .vie .inner >div.item {
+        width: calc(100% / 2 - 7.5px);
+    } 
+    .vie .inner >div.item:last-child {
+        display: none;
+    }
+
+    .editor .inner .list .list_text > div div h4 {
+        font-size: 16px
+    }
+    .editor .inner .list .list_text > div p {
+        font-size: 14px;
+    }
+
+    .best .inner {
+        display: block;
+    }
+    .best .inner .left {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap; /* flex-direction: column 쓰니까 버튼에 inline-block이 적용 안 됨 */
+    }
+    .best .inner .best_slide_cont {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .best .swiper-button-next {
+        position: static;
+        display: inline-block;
+        order: 1; /* 부모한테 flex있어야 쓸 수 있음  */
+        
+    }
+    .best .swiper-button-prev {
+        position: static;
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .best .inner .best_slide_cont figure {
+        height: 297px;
+    }
+    .best .inner .best_slide_cont figure img {
+    }
+
+    .brand .inner .list > div.list_item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: auto; /* 원래 잡혀있던 height 값 때문에 줄였을 때 위아래로 여백 생김 */
+    }
+    .brand .inner .list >div.list_item figure {
+        width: calc(100% / 2 - 7.5px);
+        height: auto;
+    }
+    .brand .inner .list >div.list_item div {
+        position: static;
+        width: calc(100% / 2 - 7.5px);
+    }
+
+    .archive {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .archive img {
+        height: 250px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+        margin-top: -50px; /* 밑에 있는 컨텐츠가 같이 올라옴 */
+        position: relative; /* inner 밑에 깔려있어서 위로 올려주기 */
+        z-index: 999;
+    }
+    .archive .inner {
+        position: static;
+        transform: translateX(0);
+        background-color: #995727;
+        width: 100%;
+        order: -1;
+    }
+    .archive .inner div {
+        padding: 30px 20px 60px ;
+        background-color: transparent; /* rgba(0,0,0,0)도 가능 */
+        width: 100%;
+    }
+    
+} /* 600 */
+
+@media screen and (max-width:380px) {
+    .brand .inner .list > div.list_item {
+        display: block;
+    }
+    .brand .inner .list >div.list_item figure {
+        width: 100%;
+        height: 300px;
+    }
+    .brand .inner .list >div.list_item div {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .brand .inner .list > div.list_item div h4 {
+        margin: 25px 0 10px;
+    }
+    .brand .inner .list > div.list_item div p {
+        margin: 10px 0;
+    }
+    .brand .inner .list > div.list_item div p br {
+        display: none;
+    }
+}
+
+/* footer pc */
+footer .f_top {
+    border-top: 1px solid #838383;
+    border-bottom: 1px solid #838383;
+}
+footer .f_top .top_menu {
+    max-width: 1360px;
+    width: calc(100% - 40px);
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+footer .f_top .top_menu ul li {
+    display: inline-block;
+    margin-right: 30px;
+}
+footer .f_top .top_menu div {
+    color: #995727;
+}
+footer .f_top .top_menu div strong {
+    margin-left: 30px;
+}
+footer .f_top .top_menu div strong span {
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+footer .inner {
+    margin: 0 auto;
+    padding: 50px 0;
+}
+footer .inner .f_info {
+    display: flex;
+    margin-bottom: 5rem;
+}
+footer .inner .f_info ul {
+    width: 33.33%;
+    font-size: 14px;
+}
+footer .inner .f_info ul:nth-child(2) {
+
+    border-right: 1px solid #838383;
+    border-left: 1px solid #838383;
+    padding: 0 7.27%; /* 99 / 1360 * 100 */
+    margin-right: 7.27%;
+}
+footer .inner .f_info ul li strong {
+    font-size: 16px;
+}
+footer .inner .f_info ul li:first-child {
+    margin-bottom: 2rem;
+}
+footer .inner .f_info ul li {
+    line-height: 1.8;
+}
+
+footer .inner >p {
+    font-size: 14px;
+    color: #838383;
+    margin-top: 10px;
+}
+
+
+@media screen and (max-width:1240px) {
+    footer .f_top {
+        border-bottom: 0;
+        position: relative;
+    }
+    footer .f_top::before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: #838383;
+        position: absolute;
+        left: 0;
+        top: 60px;
+    }
+    footer .f_top .top_menu {
+        display: block;
+        height: auto;
+    }
+    footer .f_top .top_menu ul {
+        line-height: 60px; /* 밑으로 밀어내기 */
+    }
+    footer .f_top .top_menu div {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    html, body {
+        font-size: 50%;
+    }
+    footer .inner .f_info {
+        flex-wrap: wrap;
+    }
+    footer .inner .f_info ul {
+        width: 50%;
+    }
+    footer .inner .f_info ul:first-child {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    footer .inner .f_info ul:nth-child(2) {
+        padding-left: 0;
+        border-left: 0;
+        margin-right: 0;
+    }
+    footer .inner .f_info ul:last-child {
+        padding-left: 7.27%;
+    }
+}
+
+@media screen and (max-width:760px) {
+    footer .f_top::before {
+        top: 82px;
+    }
+    footer .f_top .top_menu {
+        font-size: 13px;
+    }
+    footer .f_top .top_menu ul {
+        line-height: 1.8;
+        height: 82px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    footer .f_top .top_menu div {
+        display: flex;
+    }
+    footer .f_top .top_menu div strong span {
+        display: block;
+        margin-left: 0;
+    }
+
+    /* footer .inner .f_info {
+        margin-top: 50px; inner에 padding값 잡아줘서 없어도 됨
+    } */
+    footer .inner .f_info ul {
+        width: 100%;
+        margin-bottom: 25px;
+        font-size: 12px;
+    }
+    footer .inner .f_info ul:first-child {
+        margin-bottom: 25px;
+    }
+
+    footer .inner .f_info ul:nth-child(2) {
+        border: 0;
+    }
+    footer .inner .f_info ul:last-child {
+        padding-left: 0;
+    }
+
+    footer .inner .f_info ul li:first-child {
+        margin-bottom: 10px;
+    }
+
+    footer .inner >p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
